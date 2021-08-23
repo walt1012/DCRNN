@@ -21,7 +21,6 @@ python -m scripts.generate_training_data --output_dir=data/METR-LA --traffic_df_
 ## 区域建模
 需要用到传感器的数据（传感器编号，位置信息等）,`data/sensor/graph/graph_sensor_ids.csv`和`data/sensor_graph/graph_sensor_locations.csv`中记录了传感器的编号和经纬度。
 ```bash
-# 生成传感器矩阵
 python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/graph_sensor_ids.txt --normalized_k=0.1 --output_pkl_filename=data/sensor_graph/adj_mx.pkl
 ```
 
@@ -33,4 +32,8 @@ python dcrnn_train.py --config_filename=data/model/dcrnn_la.yaml
 ## 模型评估
 ```bash
 python -m scripts.eval_baseline_methods --traffic_reading_filename=data/metr-la.h5
+```
+## 模型预测
+```bash
+python run_demo.py --config_filename=data/model/dcrnn_la.yaml
 ```
