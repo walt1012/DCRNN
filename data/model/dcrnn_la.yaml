@@ -33,6 +33,8 @@ train:
   max_grad_norm: 5
   max_to_keep: 100
   min_learning_rate: 2.0e-06
+  log_dir: data/model/METR-LA
+  model_filename: data/model/METR-LA/models
   optimizer: adam
   patience: 50
   steps: [20, 30, 40, 50]
